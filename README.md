@@ -1,5 +1,5 @@
 CodeCampApp
-========
+======== 
 
 # 1. Purpose
 
@@ -16,10 +16,7 @@ CodeCampApp
 
 # 3. Build
 
-It is a complete project with a build system focused on AngularJS apps and tightly integrated with other tools commonly used in the AngularJS community:
-* powered by [Grunt.js](http://gruntjs.com/)
-* test written using [Jasmine](http://pivotal.github.com/jasmine/) syntax
-* test are executed by [Karma Test Runner](http://karma-runner.github.io/0.8/index.html) (integrated with the Grunt.js build)
+It is a complete project with a build system focused on AngularJS apps and tightly integrated with other tools commonly used in the AngularJS community: 
 * build supporting JS, CSS and AngularJS templates minification
 * [Twitter's bootstrap](http://getbootstrap.com/) with LESS templates processing integrated into the build
 
@@ -182,7 +179,10 @@ The app made up of a number of javascript, css and html files that need to be me
     cd ..
     ```
 * Browse to the application at [http://localhost:3336]
+ 
   
+* Resource: https://github.com/angular-app/angular-app
+
 ## Browser Support
 We only regularly test against Chrome 29 and occasionally against Firefox and Internet Explorer.
 The application should run on most modern browsers that are supported by the AngularJS framework.
@@ -396,4 +396,7 @@ export NODE_ENV='production'
         
      * execute the stop bash script to stop the server:
         ./stop
-         
+        
+ Resources:
+* http://www.bennadel.com/blog/2321-how-i-got-node-js-running-on-a-linux-micro-instance-using-amazon-ec2.htm
+* http://iconof.com/blog/how-to-install-setup-node-js-on-amazon-aws-ec2-complete-guide/
