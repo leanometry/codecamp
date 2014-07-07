@@ -7,7 +7,6 @@
           "imgPaths": "/static/img/"
       },
 
-      "pageSize":20,
       "dataApi": {
           "path": "/api",
           "currentUserPath":"/currentUser/api",

@@ -85,33 +85,34 @@ There are two sections in the file one for development configs and one for produ
 #### API Configs
 
     ```
-    dataApi: {
-            paths: {
-                securityPath:'/api_telapp_sec/rest/json', // the path to security routes
-                productPath:'/api_telapp_product/rest/json', // paths to product routes
-                voiceBroadcastPath:'/api_telapp_vb/rest/json', // paths to voice routes
-                liveAppPath:'/TelFlexConf/apps' // paths to live app routes
-            },
-            apiUrl: 'https://dev.shoutpoint.com',            // The base url of the API server
-            apiKey: 'b8ca1e5d-0c3b-49e0-82b5-8f9b84354180'                 // The API key
-    },
+   dataApi:{
+       path: '/api', //path to api routes
+       currentUserPath:'/currentUser/api' // path to routes that verify current userId (i.e. contact for the current user)
+   },
+   database: {
+       usersCollection : 'users', //table that contains the users
 
-    security: {                                 // The name of database that contains the security information
-            usersCollection: 'createAccount'                            // The name of the route to the calls for user information
-    } ,
+       mongo: {
+           dbName:'codecamp',
+           apiUrl: 'https://api.mongolab.com/api/1/databases',            // The base url of the MongoLab DB server
+           apiKey: '31Bt2CISWs8z9eEKUtpM3lwhVCgOq8Yf'                 // replace MongoLab API key with your key
+       }
+   },
     ```
 
 ####  Server Configs
 
    ```
-   server:{
-      listenURL: '127.0.0.1',
-      listenPort: 3337,                                   // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)
-      securePort: 8436,                                   // The HTTPS port on which the server is to listen (means that the app is at https://localhost:8433 for instance)
-      distFolder: path.resolve(__dirname, '../client/dist'),  // The folder that contains the application files (note that the files are in a different repository) - relative to this file
-      staticUrl: '/static',                               // The base url from which we serve static files (such as js, css and images)
-      cookieSecret: 'codecamp-app'                         // The secret for encrypting the cookie
-   },
+  server:{
+        listenURL: 'localhost',
+        listenPort: 3337,                                   // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)
+        securePort: 8436,                                   // The HTTPS port on which the server is to listen (means that the app is at https://localhost:8433 for instance)
+        distFolder: path.resolve(__dirname, '../client/dist'),  // The folder that contains the application files (note that the files are in a different repository) - relative to this file
+        staticUrl: '/static',                               // The base url from which we serve static files (such as js, css and images)
+        cookieSecret: 'codecamp-dev-app',                         // The secret for encrypting the cookie
+
+        appPath:  path.resolve(__dirname, '.')
+    },
    ```
 
 ####  Mail Server Configs
@@ -124,8 +125,8 @@ There are two sections in the file one for development configs and one for produ
              secureConnection: true, // use SSL
              port: 465, // port for secure SMTP
              auth: {
-                 user: 'symonny@gmail.com', // username for sender
-                 pass: 'Kissmetwice5' // password for sender
+                 user: '', // username for sender
+                 pass: '' // password for sender
              }
          },
          templatePath: "./views/emails/" //path to the email templates
@@ -143,27 +144,19 @@ To configure the constants for client there are two files in client/config/envir
    ```
    {
        "constants":{
-           "paths":{
-               "securityPath": "/api_telapp_sec/rest/json",
-               "productPath": "/api_telapp_product/rest/json",
-               "voiceBroadcastPath":"api_telapp_vb/rest/json",
-               "liveAppPath":"/TelFlexConf/apps"
-           },
-
-           "liveAppPath":" http://dev.shoutpoint.com/TelFlexConf/apps/ProductApp.html",
-           "statsPath":" http://dev.shoutpoint.com/TelFlexConf/apps/ReportingApp.html",
-           "voiceFilePath": "http://dev.shoutpoint.com/TelWeb/listenVox.do",
-
-           "dataApi": {
-               "serverSideProcessing": false, // specifies if node js is used for authentication
-
-               "useServerProxy": false, // specifies if proxy should be used
-
-               "sessionCookieName": "codecamp_dev_app", // the name of the client side cookie
-               "apiUrl": "https://dev.shoutpoint.com", // the url to the api
-               "apiKey": "b8ca1e5d-0c3b-49e0-82b5-8f9b84354180" // the api key
-           }
-       }
+             "appName":"Contacts", // app name
+             "distdir":"dist", // path where the generated client code will be 
+             "staticUrl":"/static", //url to static content  
+             "server":{
+                 "imgPaths": "/static/img/" //url to images
+             },
+        
+             "dataApi": {
+                 "path": "/api", //  url to api routes
+                 "currentUserPath":"/currentUser/api", // url to api routes for current user 
+                 "database": "codecamp", //database name as taken from mongolab 
+             }
+         }
    }
    ```
 
@@ -403,5 +396,4 @@ export NODE_ENV='production'
         
      * execute the stop bash script to stop the server:
         ./stop
-        
-         ssh -i ~/.ssh/node_key.pem ubuntu@ec2-54-193-128-28.us-west-1.compute.amazonaws.com
+         
