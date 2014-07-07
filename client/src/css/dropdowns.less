@@ -1,0 +1,87 @@
+/****** dropdown-select *******/
+
+.wrap-dd-select {
+
+  padding: 12px 12px 14px;
+  font-size: 18px;
+  line-height: 1.42857143;
+  color: #4d4d4d;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    outline: none;
+  height:48px;
+
+  font-size: 18px;
+  font-family: 'proximanova-light';
+}
+
+.wrap-dd-select:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #e5e5e5 transparent;
+}
+
+.wrap-dd-select .dropdown {
+    /* Size & position */
+
+  overflow: auto;
+  height: 150px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+  font-size: 18px;
+  background-color: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  padding: 5px 0;
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+  list-style: none;
+  margin-top:4px;
+  z-index:1000
+}
+
+.wrap-dd-select .dropdown li {
+  width: 100%;
+}
+.wrap-dd-select .dropdown  > li > a:hover, .wrap-dd-select .dropdown  > .active > a, .wrap-dd-select .dropdown  > .active > a:hover, .wrap-dd-select .dropdown > .active > a:focus {
+  color: #ffffff;
+}
+.wrap-dd-select .dropdown li a {
+  display: block;
+  padding: 3px 14px;
+  clear: both;
+  font-weight: normal;
+  color: #4d4d4d;
+  white-space: nowrap;
+  height: 48px;
+  line-height: 48px;
+  font-size: 18px;
+  font-family: 'proximanova-light';
+  width:100%
+}
+.wrap-dd-select .dropdown  > li > a:hover, .wrap-dd-select .dropdown > li > a:focus {
+  text-decoration: none;
+  color: white;
+  background-color: #3d91d4;
+}
+
+.wrap-dd-select.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}

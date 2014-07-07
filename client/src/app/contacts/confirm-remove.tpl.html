@@ -1,0 +1,12 @@
+<form name="confirm-remove-pin" id="confirm-remove-pin" class="conferences-delete" novalidate >
+        <h3 class="text-center white"> Are you sure you want to delete this contact!</h3>
+    <div class="modal-body">
+        <div class="alert alert-danger text-center" ng-show="error">
+            {{error}}
+        </div>
+    </div>
+    <div class="modal-footer  ">
+        <button class="btn btn-primary" ng-click="remove()">Delete</button>
+        <span class="orspan">or</span> <a  ng-click="cancel()">Cancel</a>
+    </div>
+</form>

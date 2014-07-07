@@ -1,0 +1,35 @@
+{
+  "name": "CodeCampApp",
+  "description": "Back end server for the CodeCampApp app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "^0.8.0",
+    "bcrypt-nodejs": "0.0.3",
+    "big-integer": "^1.2.10",
+    "express": "~3.0.6",
+    "express-namespace": "~0.1.1",
+    "forever": "^0.11.1",
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "nodemailer": "^0.6.3",
+    "open": "0.0.3",
+    "passport": "~0.1.18",
+    "passport-local": "~0.1.6",
+    "request": "~2.16.6",
+    "rewire": "~1.0.4",
+    "static-asset": "^0.5.5",
+    "supervisor": "~0.4.1",
+    "underscore": "^1.6.0",
+    "utf8": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "node-inspector": "^0.7.3",
+    "rewire": "~1.0.3",
+    "supervisor": "~0.4.1"
+  }
+}

@@ -1,0 +1,175 @@
+
+/*angular animations for repeater */
+.repeater-container .ng-enter,
+.repeater-container.ng-leave,
+.repeater-container.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
+}
+
+.repeater-container.ng-enter {
+  left:-10px;
+  opacity:0;
+}
+.repeater-container.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.repeater-container.ng-leave {
+  left:0;
+  opacity:1;
+}
+.repeater-container.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+
+.repeater-container.ng-move {
+  opacity:0.5;
+}
+.repeater-container.ng-move.ng-move-active {
+  opacity:1;
+}
+
+
+/*angular animations for switch */
+
+.switch-container {
+  position:relative;
+  height:650px;
+}
+
+.switch-animation.ng-enter,
+.switch-animation.ng-leave {
+  -moz-transition:0.3s linear all;
+  -o-transition:0.3s linear all;
+  -ms-transition:0.3s linear all;
+  -webkit-transition:0.3s linear all;
+  transition:0.3s linear all;
+  height:500px;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.switch-animation.ng-leave.ng-leave-active {
+  left:-100px;
+}
+.switch-animation.ng-enter {
+  left:100px;
+}
+
+.switch-animation.ng-leave,
+.switch-animation.ng-enter.ng-enter-active {
+  left:0;
+}
+
+/* Custom radio button */
+.custom-radio {
+  display: inline-block;
+  padding-right: 10px;
+}
+.custom-radio > .radio-button {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #CBCBCB;
+  border-radius: 50%;
+  background: #ffffff;
+}
+.custom-radio > .radio-button > input[type=radio] {
+  display: none;
+}
+.custom-radio > .title {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  margin-left: 5px;
+}
+.custom-radio > .title > label {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.custom-radio > .radio-button > input[type=radio] + label span {
+  display: block;
+  position: relative;
+  left: 2px;
+  top:2px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.custom-radio > .radio-button > input[type=radio]:checked + label span {
+  background-color: #40A9D7;
+}
+.custom-radio > .radio-button > label > span.radio-checked {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+}
+.custom-radio label {height:17px;
+  margin-bottom: 0;}
+
+/******custom checkbox*****/
+.custom-checkbox label {height:18px;
+  margin-bottom: 0;}
+.custom-checkbox {
+  display: inline-block;
+  padding-right: 10px;
+}
+.custom-checkbox > .checkbox-button {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #CBCBCB;
+  border-radius: 50%;
+  background: #ffffff;
+  position: relative;
+  top: 8px;
+}
+.custom-checkbox > .checkbox-button > input[type=checkbox] {
+  display: none;
+}
+.custom-checkbox > .title {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  margin-left: 5px;
+}
+.custom-checkbox > .title > label {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 16px;
+  position: relative;
+}
+
+.custom-checkbox > .checkbox-button > input[type=checkbox] + label span {
+  display: inline-block;
+  position: relative;
+  left: -3px;
+  top: -3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.custom-checkbox > .checkbox-button > input[type=checkbox] + label span.fontello:before{
+  position: absolute;
+  font-size: 24px;
+  display:none;
+}
+
+.custom-checkbox > .checkbox-button > input[type=checkbox]:checked + label span.fontello:before {
+  display:block;
+  color: #40A9D7;
+}
+.custom-checkbox > .checkbox-button > label > span.checkbox-checked {
+  display: block;
+  width: 24px;
+  height: 24px;
+}

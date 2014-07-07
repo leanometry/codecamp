@@ -1,0 +1,94 @@
+<div class="close-wrapper"><a ng-click="close()" class="inner-close"> </a></div>
+<div ng-switch on="whichForm" class="switch-container1 ">
+    <div ng-switch-when="1"  class="switch-animation1">
+        <div class="modal-header baby-blue-bg">
+             <h3 class="text-center white"> Login to Your Account</h3>
+        </div>
+        <form name="form-login" id="form-login" novalidate class="login-form" submit="login()" >
+
+            <div class="modal-body">
+                <div class="alert alert-warning " ng-show="authReason">
+                    {{authReason}}
+                </div>
+                <div class="alert alert-danger" ng-show="authError">
+                    {{authError}}
+                </div>
+                <div class="form-group" ng-class="getCssClasses('email')">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="Email Address" ng-model="user.email" required autofocus>
+                    <span ng-show="showError('email', 'email')" class="help-inline">Please insert a valid email address.</span>
+                    <span ng-show="showError('email', 'required')" class="help-inline">Please insert a valid email address.</span>
+                </div>
+                <div class="form-group" ng-class="getCssClasses('password')">
+                    <input name="password" id="password" class="form-control"  placeholder="Password" type="password" ng-model="user.password" required>
+                    <span ng-show="showError('password', 'required')" class="help-inline">Password is required.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary with-height-radius" type="submit" >Login</button>
+                <span class="orspan">or</span> <a class="normal-size" ng-click="load(allforms.signup)">Sign Up</a>
+
+                <div class="text-center spacing-half-top"><a class="normal-size" ng-click="load(allforms.forgotPassword)">Forgot Password?</a></div>
+            </div>
+        </form>
+    </div>
+    <div  ng-switch-when="2"  class="switch-animation1">
+        <div class="modal-header baby-blue-bg">
+            <h3 class="text-center white"> Sign Up Now!</h3>
+        </div>
+        <form id="signup-form" name="signup-form" novalidate class="signup-form"  submit="register()">
+            <div class="alert alert-warning " ng-show="errorReason" ng-bind="errorReason"></div>
+            <div class="modal-body">
+                <div class="form-group " ng-class="getCssClasses('firstName')">
+                    <input name="firstName" id="firstName" class="form-control" placeholder="First Name" type="text" ng-model="user.firstName" required>
+                    <span ng-show="showError('firstName', 'required')" class="help-inline">First name is required.</span>
+                </div>
+
+                <div class="form-group " ng-class="getCssClasses('lastName')">
+                    <input  name="lastName" id="lastName" class="form-control" placeholder="Last Name" type="text" ng-model="user.lastName" required>
+                    <span ng-show="showError('lastName', 'required')" class="help-inline">Last name is required.</span>
+                </div>
+
+                <div class="form-group" ng-class="getCssClasses('email')">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="Email Address" ng-model="user.email" required autofocus unique-email>
+                    <span ng-show="showError('email', 'email')" class="help-inline">Please insert a valid email address.</span>
+                    <span ng-show="showError('email', 'required')" class="help-inline">Please insert a valid email address.</span>
+                    <span ng-show="showError('email', 'uniqueEmail')" class="help-inline">This email address is not available - please enter another.</span>
+                </div>
+
+                <div class="form-group" ng-class="getCssClasses('password')">
+                    <input name="password" id="password" class="form-control" placeholder="Password" type="password" ng-model="user.password" required>
+                    <span ng-show="showError('password', 'required')" class="help-inline">Password is required.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button   class="btn btn-primary with-height-radius"  type="submit">Sign Up</button>
+                <span class="orspan">or</span> <a class="normal-size" ng-click="load(allforms.login)">Login</a>
+            </div>
+        </form>
+    </div>
+    <div  ng-switch-when="3"  class="switch-animation1">
+        <div class="modal-header baby-blue-bg">
+            <h3 class="text-center white">Reset Your Password!</h3>
+        </div>
+        <form name="forgot-password-form" id="forgot-password-form" novalidate class="forgot-password-form"  submit="resetPassword()" >
+             <div class="modal-body">
+                <div class="alert alert-warning" ng-show="recoverMessage">
+                    {{recoverMessage}}
+                </div>
+                <div class="alert alert-danger" ng-show="recoverError">
+                    {{recoverError}}
+                </div>
+
+                <div class="form-group" ng-class="getCssClasses('email')">
+                    <input name="email" id="email" class="form-control" placeholder="Email address"  type="email" ng-model="user.email" required autofocus>
+                    <span ng-show="showError('email', 'required')" class="help-inline">Email address is required.</span>
+                    <span ng-show="showError('email', 'email')" class="help-inline">Please enter a valid email address.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary with-height-radius" type="submit" >Reset Password</button>
+                <span class="orspan">or</span> <a class="normal-size" ng-click="load(allforms.login)">Login</a>
+            </div>
+        </form>
+    </div>
+</div>

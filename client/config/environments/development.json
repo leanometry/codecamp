@@ -1,0 +1,21 @@
+{
+  "constants":{
+      "appName":"Contacts",
+      "distdir":"dist",
+      "staticUrl":"/static",
+      "server":{
+          "imgPaths": "/static/img/"
+      },
+
+      "pageSize":20,
+      "dataApi": {
+          "path": "/api",
+          "currentUserPath":"/currentUser/api",
+          "database": "codecamp",
+          "useServerProxy": true,
+
+          "apiUrl": "",
+          "apiKey": ""
+      }
+  }
+}

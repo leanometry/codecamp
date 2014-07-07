@@ -1,0 +1,29 @@
+{
+  "name": "CodeCampApp",
+  "subdomain": "leanometry",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "version": "0.0.0-12",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "async": "^0.8.0",
+    "bcrypt-nodejs": "0.0.3",
+    "express": "~3.0.6",
+    "express-namespace": "~0.1.1",
+    "forever": "^0.11.1",
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "nodemailer": "^0.6.3",
+    "open": "0.0.3",
+    "passport": "~0.1.18",
+    "passport-local": "~0.1.6",
+    "request": "~2.16.6",
+    "rewire": "~1.0.4",
+    "supervisor": "~0.4.1",
+    "underscore": "^1.6.0"
+  }
+}

@@ -1,0 +1,12 @@
+
+<div class="toast-container toast-position-top-right"  ng-repeat="notification in notifications.getCurrent()">
+    <div class="toast-item-wrapper">
+        <div class="toast-item toast-type-success">
+            <div class="toast-item-image">
+                <span ng-class="['fontello', notification.type]" />
+            </div>
+            <div class="toast-item-close fontello"  ng-click="removeNotification(notification)" ></div>
+            <p>{{notification.message}}</p>
+        </div>
+    </div>
+</div>

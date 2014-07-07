@@ -1,0 +1,22 @@
+<div style="position:relative">
+    <ul class="nav navbar-nav pull-right" id="nav-user">
+        <li ng-show="isAuthenticated()" class="userinfo">
+            <a class="profile" href="/settings">
+                <span class="fontello user"></span> <span>{{getUserEmail()}}</span>
+            </a>
+        </li>
+
+        <li ng-show="isAuthenticated()" class="userinfo">
+            <a  ng-click="logout()" ><span class="fontello sign-out"></span>Logout</a>
+        </li>
+
+        <li ng-hide="isAuthenticated()" class="login">
+            <a ng-click="openSignup()">Sign Up</a>
+        </li>
+
+        <li ng-hide="isAuthenticated()" class="login">
+            <a ng-click="openLogin()">Login</a>
+        </li>
+
+    </ul>
+</div>

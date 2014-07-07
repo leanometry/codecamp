@@ -1,0 +1,84 @@
+
+<div class="row"   >
+    <div class="alert alert-danger" ng-show="error">
+        {{error}}
+    </div>
+
+    <table class=" contacts smallerrow table table-bordered table-hover table-condensed" ng-show="hasContacts()">
+        <thead>
+        <tr style="font-weight: bold">
+            <td style="width:15%">First Name</td>
+            <td style="width:15%">Last Name</td>
+            <td style="width:15%">Phone Type</td>
+            <td style="width:20%">Number</td>
+            <td style="width:20%">Email</td>
+            <td style="width:15%"></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contact in contacts" ng-mouseenter="hover[$index] = true" ng-mouseleave="hover[$index] = false" >
+            <td   >
+                <!-- editable firstname (text with validation) -->
+                    <span e-placeholder="First Name..." editable-text="contact.firstName" e-name="firstName" e-form="rowform" onbeforesave="checkFirstName($data)" e-required>
+                      {{ contact.firstName || 'First Name' }}
+                    </span>
+            </td>
+
+            <td   >
+                <!-- editable lastname (text with validation) -->
+                    <span  e-placeholder="Last Name..." editable-text="contact.lastName" e-name="lastName" e-form="rowform" onbeforesave="checkLastName($data)" e-required>  {{ showLastName(contact) }}
+                    </span>
+            </td>
+
+            <td  >
+                <!-- editable type (select-local) -->
+                    <span e-placeholder="Select Type..." editable-select="contact.type" e-name="type" e-form="rowform" e-ng-options="r.value as r.text for r in types" onbeforesave="checkType($data)" e-required>
+                      {{ showType(contact) }}
+                    </span>
+
+                <span class="editable-caret input-group-add-on" ng-show="rowform.$visible"><span class="fontello down-arrow"></span></span>
+            </td>
+
+            <td   >
+                <!-- editable phoneNo (text with validation) -->
+                    <span e-placeholder="Phone Number..." editable-text="contact.phoneNo" e-name="phoneNo" e-form="rowform"   >
+                      {{ contact.phoneNo || '' }}
+                    </span>
+            </td>
+
+            <td  >
+                <!-- editable emailAddress (text with validation) -->
+                    <span e-placeholder="Email Address..." editable-email="contact.emailAddress" e-name="emailAddress" e-form="rowform" onbeforesave="checkEmailAddress($data)" e-required>
+                      {{ contact.emailAddress || '' }}
+                    </span>
+            </td>
+
+            <td  >
+                <!-- form -->
+                <form editable-form name="rowform" onbeforesave="saveContact(contact, rowform)" ng-show="rowform.$visible" class="editable-form form-buttons form-inline pull-right" shown="inserted == contact  ">
+                    <div class="innner" >
+                        <button id="save" type="submit" ng-disabled="rowform.$waiting" class="editable-btn btn btn-white"
+                                tooltip-placement="top" tooltip="Save">
+                            <span class="fontello checked"></span>
+                        </button>
+                        <button  id="cancel" type="button" ng-disabled="rowform.$waiting" ng-click="cancel(contact, rowform, $index)" class="editable-btn btn btn-white gray"  tooltip-placement="top" tooltip="Cancel">
+                            <span class="fontello delete"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="pull-right buttons side-editable hideit "
+                     ng-class="{'showit': !rowform.$visible && hover[$index] == true,'hideit': !(!rowform.$visible && hover[$index] == true )}" >
+                    <div class="innner" >
+                        <button id="edit" class="editable-btn btn btn-white gray smaller" ng-click="rowform.$show()"
+                                tooltip-placement="top" tooltip="Edit"><span class="fontello pencil"></span></button>
+                        <button id="delete" class="editable-btn btn btn-white gray smaller" ng-click="removeContact(contact, $index)"  tooltip-placement="top" tooltip="Delete"><span class="fontello trash"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="add-team" ng-click="addContact()"><span class="fontello circled-plus"></span> Add Contact</a>
+</div>

@@ -1,0 +1,20 @@
+{
+    "constants":{
+        "distdir":"dist",
+        "staticUrl":"/static",
+
+        "server":{
+            "imgPaths": "/static/img/"
+        },
+        "pageSize":20,
+        "dataApi": {
+            "path": "/api",
+            "currentUserPath":"/currentUser/api",
+            "database": "codecamp-prod",
+            "useServerProxy": true,
+
+            "apiUrl": "",
+            "apiKey": ""
+        }
+    }
+}
